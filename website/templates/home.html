@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block title %} Report Form {% endblock %}
+{% block content %}
+<H3>Welcome to Campus Care</H3>
+<p>The Maintenance App</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report your Issue</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Link your custom CSS file -->
+</head>
+<body>
+    <div class="container" style="background-image: url('https://th.bing.com/th/id/OIP.3YPDduiRnifSn4My2WHtfwHaFj?pid=ImgDet&w=175&h=131&c=7&dpr=1.5');">
+   
+        <div class="content"style="color: white;">
+            <h1 class="text-center">Report</h1>
+            <form action="/submit_report" method="POST">
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="datetime-local" id="date" name="date" class="form-control" required>
+                </div>
+                
+                <script>
+                    // Get the current date and time
+                    var currentDate = new Date();
+                
+                    // Format the current date and time as required by the datetime-local input
+                    var formattedDate = currentDate.getFullYear() + '-' +
+                                        ('0' + (currentDate.getMonth() + 1)).slice(-2) + '-' +
+                                        ('0' + currentDate.getDate()).slice(-2) + 'T' +
+                                        ('0' + currentDate.getHours()).slice(-2) + ':' +
+                                        ('0' + currentDate.getMinutes()).slice(-2);
+                
+                    // Set the min attribute of the date input to the formatted current date and time
+                    document.getElementById('date').min = formattedDate;
+                
+                    // Set the max attribute of the date input to the formatted current date and time
+                    document.getElementById('date').max = formattedDate;
+                </script>
+                
+               
+
+
+                <div class="form-group">
+                    <label for="campus">Campus:</label>
+                    <select class="form-control" id="campus" name="campus">
+                        <option value="ML Sultan">ML Sultan Campus</option>
+                        <option value="Steve Biko">Steve Biko Campus</option>
+                        <option value="Ritson">Ritson Campus</option>
+                        <option value="City">City Campus</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="issue_type">Type of Issue:</label>
+                    <select class="form-control" id="issue_type" name="issue_type">
+                        <option value="safety">Safety</option>
+                        <option value="maintenance">Maintenance</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Priority Rating:</label>
+                    <input type="number" id="rating" name="rating" class="form-control" min="1" max="10" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="building_block">Building Block:</label>
+                    <select id="building_block" name="building_block" class="form-control">
+                        <option value="A">Block A</option>
+                        <option value="B">Block B</option>
+                        <option value="C">Block C</option>
+                        <option value="D">Block D</option>
+                        <option value="E">Block E</option>
+                        <option value="F">Block F</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4" class="form-control" required></textarea>
+                </div>
+
+                
+               
+
+                <button type="submit" class="btn btn-primary btn-block">Submit Report</button>
+            </form>
+        </div>
+    </div>
+</body>
+<div class="container mt-5" style="background-image: url('data:image/jpeg;base64,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');">
+    <h2 class="text-center">Reported Issues</h2>
+    <table class="table" style="color: white;">
+        <thead style="color: white;" >
+            <tr >
+                <th>ID</th>
+                <th>Date</th>
+                <th>Campus</th>
+                <th>Issue Type</th>
+                <th>Description</th>
+                <!-- Add more table headers as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in data %}
+                <tr>
+                    <td>{{ report.id }}</td>
+                    <td>{{ report.date }}</td>
+                    <td>{{ report.campus }}</td>
+                    <td>{{ report.issue_type }}</td>
+                    <td class="description">{{ report.description }}</td>
+                    <!-- Add more table data cells as needed -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</html>
+
+
+{% endblock %}

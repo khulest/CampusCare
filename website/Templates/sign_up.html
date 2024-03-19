@@ -1,0 +1,196 @@
+{% extends "base.html"%}
+{% block title %} Sign Up {% endblock %}
+{% block content %}
+<H3>Welcome to Campus Care</H3>
+<p>The Maintanance App</p>
+<div class="container" style="background-image: url('https://th.bing.com/th/id/OIP.3YPDduiRnifSn4My2WHtfwHaFj?pid=ImgDet&w=175&h=131&c=7&dpr=1.5');">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Sign Up</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" style="background-image: url('https://th.bing.com/th/id/OIP.cGDDpAKRSGYRaAYWoAayaAHaE8?w=233&h=180&c=7&r=0&o=5&cb=10&dpr=1.5&pid=1.7');">
+                        <div class="form-group">
+                            <label for="firstName"style="color: #fff;">First Name</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="firstName"
+                                name="firstName"
+                                placeholder="Enter first name"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="Surname"style="color: #fff;">Surname</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="Surname"
+                                name="Surname"
+                                placeholder="Enter surname"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="gender"style="color: #fff;">Gender</label>
+                            <select class="form-control" id="gender" name="gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="student_number"style="color: #fff;">Student/Staff Number</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="student_number"
+                                name="student_number"
+                                placeholder="Enter your student/staff number"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="phone_number"style="color: #fff;">Phone number</label>
+                            <input
+                                type="phone_number"
+                                class="form-control"
+                                id="phone_number"
+                                name="phone_number"
+                                placeholder="Enter your phone number"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="institution"style="color: #fff;">Institution</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="institution"
+                                name="institution"
+                                placeholder="Enter the institution you are at"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="email"style="color: #fff;">Email</label>
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="email"
+                                name="email"
+                                placeholder="Enter email"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="password"style="color: #fff;">Password</label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="password"
+                                name="password"
+                                placeholder="Enter password"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="password"style="color: #fff;">Confirm Password</label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="password"
+                                name="password"
+                                placeholder="Confirm password"
+                            />
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    h1 {
+        color: #030303;
+        margin-bottom: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    label {
+        color: #000000;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        text-align: left;
+        width: 100%;
+    }
+
+    input[type="text"],
+    textarea,
+    input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #f7e9e9;
+        border-radius: 5px;
+        font-size: 1rem;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus,
+    input[type="file"]:focus {
+        outline: none;
+        border-color: #007bff;
+    }
+
+    button[type="submit"] {
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    .message {
+        margin-top: 20px;
+        color: #060000;
+    }
+
+    .message a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .message a:hover {
+        text-decoration: underline;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://sapi.org.za/wp-content/uploads/2017/08/dut-1.jpg");
+        background-size: cover;
+        background-position: center;
+        filter: blur(5px);
+        z-index: -1;
+    }
+</style>
+{% endblock %}
